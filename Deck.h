@@ -23,23 +23,23 @@ public:
     spades = 3
 
   };
-  typedef std::pair<int, Suite> tCard;
-  static const size_t cMaxDeckSize = 52;
+  typedef std::pair<int, Suite> Card;
+  static const size_t maxDeckSize = 52;
 
-  bool add(tCard card);
-  void draw();
-  void take(size_t n);
+  bool add(Card card);
+  Card draw();
+  std::vector<Card> take(size_t n);
   void shuffle();
   size_t size();
   void reveal();
   void revealTop();
 
 private:
-  std::vector<tCard> mDeck;
-  static const std::map<Suite, std::string> mMapSuiteToString;
+  std::vector<Card> m_deck;
+  static const std::map<Suite, std::string> m_mapSuiteToString;
 
-  bool isCardDuplicate(tCard card);
-  bool isCardValid(tCard card);
+  bool isCardDuplicate(Card card);
+  bool isCardValid(Card card);
 };
 #endif // !DECK_H
 #define DECK_H
