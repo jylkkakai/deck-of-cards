@@ -3,7 +3,6 @@
 #include <cstddef>
 #include <map>
 #include <string>
-#include <utility>
 #include <vector>
 
 class Deck {
@@ -27,7 +26,10 @@ public:
   static const size_t maxDeckSize = 52;
 
   bool add(Card card);
+  // If deck is empty draw returns card with zero value
   Card draw();
+  // If n is bigger than deck size take returns all cards in the deck,
+  // if deck is empty returns empty vector
   std::vector<Card> take(size_t n);
   void shuffle();
   size_t size();

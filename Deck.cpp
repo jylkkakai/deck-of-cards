@@ -65,7 +65,6 @@ void Deck::revealTop() {
   if (!m_deck.empty()) {
     std::cout << "  The topmost card in the deck is ";
     auto last = m_deck.back();
-    // auto last = m_deck.end() - 1;
     std::cout << last.first << " of " << m_mapSuiteToString.at(last.second)
               << std::endl;
   } else {

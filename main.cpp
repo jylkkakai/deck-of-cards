@@ -4,36 +4,43 @@
 int main(void) {
 
   Deck deck;
-  std::cout << "  " << deck.size() << std::endl;
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
 
-  deck.add(std::make_pair(1, Deck::hearts));
-  std::cout << "  " << deck.size() << std::endl;
+  Deck::Card card = {1, Deck::hearts};
+  deck.add(card);
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
 
-  deck.add(std::make_pair(11, Deck::clubs));
-  std::cout << "  " << deck.size() << std::endl;
+  card = {11, Deck::clubs};
+  deck.add(card);
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
 
   deck.draw();
-  std::cout << "  " << deck.size() << std::endl;
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
 
   for (size_t i = 0; i < 10; i++) {
-    deck.add(std::make_pair(i, Deck::spades));
+    card = {i, Deck::spades};
+    deck.add(card);
   }
   for (size_t i = 0; i < 15; i++) {
-    deck.add(std::make_pair(i, Deck::diamonds));
+    card = {i, Deck::diamonds};
+    deck.add(card);
   }
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
+
   deck.shuffle();
   deck.reveal();
   deck.revealTop();
+  std::cout << std::endl;
 
   deck.take(deck.size());
   deck.reveal();
