@@ -277,6 +277,35 @@ TEST(testShuffle, shuffleFullDeck) {
   d.shuffle();
   EXPECT_EQ(size, d.size());
 }
+
+TEST(testShuffle, shuffleResultNotEqual) {
+  Deck d;
+  addNToDeck(&d, 52);
+  std::vector<Deck::Card> d1(52);
+  d.shuffle();
+  d1 = d.take(52);
+  addNToDeck(&d, 52);
+  std::vector<Deck::Card> d2(52);
+  d.shuffle();
+  d2 = d.take(52);
+
+  EXPECT_NE(d1, d2);
+}
+
+TEST(testShuffle, shuffleResultNotEqualForSeparateDecks) {
+  Deck d1;
+  Deck d2;
+  addNToDeck(&d1, 52);
+  std::vector<Deck::Card> sd1(52);
+  d1.shuffle();
+  sd1 = d1.take(52);
+  addNToDeck(&d2, 52);
+  std::vector<Deck::Card> sd2(52);
+  d2.shuffle();
+  sd2 = d2.take(52);
+
+  EXPECT_NE(sd1, sd2);
+}
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
